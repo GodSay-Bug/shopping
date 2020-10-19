@@ -1,0 +1,10 @@
+server:
+  port: 8092    
+spring:     #定义springmvc视图解析器
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+# web不用连接数据库，所以spring启动时会自动加载配置 会报
+  
