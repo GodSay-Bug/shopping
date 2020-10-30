@@ -18,7 +18,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    private static Map<Integer,String> columnMap = new HashMap<>();
+    private static Map<Integer, String> columnMap = new HashMap<>();
+
     static {
         columnMap.put(1, "username");
         columnMap.put(2, "phone");

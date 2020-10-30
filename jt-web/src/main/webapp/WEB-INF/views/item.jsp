@@ -36,7 +36,7 @@
 		//利用post传值
 		function addCart(){
 			var url = "http://www.jt.com/cart/add/${item.id}.html";
-			document.forms[0].action = url;		//js设置提交链接
+			document.forms[0].action = url;		//获取所有的form表单。js设置提交链接
 			document.forms[0].submit();			//js表单提交
 		}
 	</script>

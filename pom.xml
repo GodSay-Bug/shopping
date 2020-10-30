@@ -15,7 +15,8 @@
         <module>jt-manage</module>
         <module>jt-web</module>
         <module>jt-sso</module>
-        <module>jt-sso</module>
+        <module>jt-cart</module>
+        <module>jt-order</module>
     </modules>
 
 
@@ -99,10 +100,10 @@
         </dependency>
 
         <!--支持热部署 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--添加httpClient jar包 -->
         <dependency>
@@ -111,11 +112,11 @@
         </dependency>
 
         <!--引入dubbo配置 -->
-        <!--<dependency>
+        <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>0.2.0</version>
-        </dependency>-->
+        </dependency>
 
         <!--添加Quartz的支持 -->
         <!-- <dependency>

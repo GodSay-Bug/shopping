@@ -23,7 +23,6 @@ import java.util.List;
  */
 
 
-
 @Service
 public class ItemCatServiceImpl implements ItemCatService {
 
@@ -113,7 +112,7 @@ public class ItemCatServiceImpl implements ItemCatService {
             Long id = it.getId();
             String text = it.getName();
             //  如果是父级，就先关闭
-            String state = it.getIsParent()? "closed" : "open";
+            String state = it.getIsParent() ? "closed" : "open";
 
             EasyUITree et = new EasyUITree(id, text, state);
             lists.add(et);
@@ -123,6 +122,7 @@ public class ItemCatServiceImpl implements ItemCatService {
 
     /**
      * redis缓存
+     *
      * @param parentId
      * @return
      */
@@ -130,22 +130,24 @@ public class ItemCatServiceImpl implements ItemCatService {
     public List<EasyUITree> findItemCatListCatch(Long parentId) {
 
         List<EasyUITree> treeLists = new ArrayList<>();
-        String key = "ITME_CAT_PATENTID::"+parentId;
+        String key = "ITME_CAT_PATENTID::" + parentId;
 
-        if (jedis.exists(key)){     // 如果缓存存在
+        if (jedis.exists(key)) {     // 如果缓存存在
             String json = jedis.get(key);
             // 从redis中查询的数据是json格式的，返回的是List类型的对象，所以要转换类型
             treeLists = ObjectMapperUtil.toObject(json, treeLists.getClass());
             System.out.println(treeLists);
             System.out.println("缓存");
 
-        }else{  //  不存在缓存就查询数据库
+        } else {  //  不存在缓存就查询数据库
             treeLists = findTree(parentId);
             //   查询数据库的后要把数据保存在redis，所以要把对象转为json格式
             String json = ObjectMapperUtil.toJSON(treeLists);
-            jedis.set(key,json);
+            jedis.set(key, json);
             System.out.println("查询数据库");
         }
         return treeLists;
     }
+
+
 }

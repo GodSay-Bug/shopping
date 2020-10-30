@@ -18,6 +18,7 @@ import java.util.List;
  * @Author WL
  * @Date 2020-10-19 16:12
  * @Version 1.0
+ * 远程调用
  */
 @Service
 public class HttpClientServiceImpl implements HttpClientService {

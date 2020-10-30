@@ -6,5 +6,15 @@ spring:     #定义springmvc视图解析器
       prefix: /WEB-INF/views/
       suffix: .jsp
 
-# web不用连接数据库，所以spring启动时会自动加载配置 会报
+# web不用连接数据库，所以spring启动时会自动加载配置 会报错
+
+
+dubbo:
+  scan:
+    basePackages: com.jt
+  application:
+    name: consumer-web   #定义消费者名称
+  registry:               #注册中心地址
+    address: zookeeper://192.168.126.129:2181?backup=192.168.126.129:2182,192.168.126.129:2183
+
   
